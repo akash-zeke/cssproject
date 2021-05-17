@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSK Profile</title>
+        <link rel="shortcut icon" href="csk/onlycsk.jpg" type="image/x-icon">
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+            *{
+                box-sizing: border-box;
+                font-family: 'Merienda', cursive;
+            }
+            img{
+                max-width: 100%;
+            }
+            body{
+                margin: 0px;
+            }
+            .row1, .row2,body,.row4 h2,button{
+                background-color: rgb(0,0,0);
+                color: rgb(255, 210, 10);
+            }
+            .row1{
+                padding: 10px 60px;
+            }
+            .col1, .col2{
+                width: 50%;
+                float: left;
+                padding: 10px;
+                min-height: 200px;
+            }
+            .col2{
+                text-align: right;
+            }
+            .logo{
+                width: 250px;
+            }
+            h1,h2,h3,p{
+                margin: 0px;
+                padding: 10px;
+            }
+            button{
+                border: 2px outset rgb(255, 174, 0);
+                margin: 10px;
+            }
+            .col2 button{
+                margin: 10px 10px 0px 0px;
+            }
+            button:hover, .menu:hover{
+                background-color: rgb(255, 210, 10);
+            }
+            button:hover{
+                border: 2px inset rgb(255, 174, 0);
+            }
+            .clear{
+                clear: both;
+            }
+            .menu:hover{
+                border: none;
+                box-shadow: 2px 3px 5px hsl(0, 0%, 50%);
+            }
+            .row2,.row5{
+                text-align: center;
+            }
+            ul{
+                margin: 0px;
+                padding: 0px 0px 20px 0px; /* if padding bottom given then right space */
+            }
+            .menu{
+                padding: 5px;
+                list-style: none;
+                display: inline-block;
+                border: 2px outset rgb(255, 174, 0);
+            }
+            .box{
+                width: 80%;
+                margin: auto;
+            }
+            .row3 h2{
+                padding-top: 35px;
+            }
+            .row3{
+                background:url(csk/cskwall.jpg) no-repeat center ;
+                background-size: cover;
+            }
+            .sub{
+                width: 33.333333%;
+                float: left;
+                padding: 10px;
+                min-height: 360px;
+                background-color: hsl(47deg 97% 48% / 36%);
+            }
+            .sub:hover{
+                border: 1px ridge rgb(14, 54, 233);
+            }
+            .row4 h2{
+                text-align: center;
+                padding: 25px;
+            }
+            .tab1,.tab2{
+                background-color: rgb(236 186 3 / 70%);
+                border: 1px solid black;
+                width: 49%;
+                float: left;
+                padding: 10px;
+                min-height: 250px;
+                border-radius: 5%;
+            }
+            .tab2{
+                float:right;
+            }
+            .row4 h3,.row3 h2{
+                margin: 0px;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+            .list{
+                list-style: square;
+                padding: 2px 0px;
+            }
+            .tab1 ul, .tab2 ul{
+                padding: 0px 10px 10px 25px;
+                font-size: 1.1em;
+            }
+            .row4,.row3,button:hover, .menu:hover{
+                color: black;
+            } 
+            .row4,.row3{
+                padding-bottom: 80px;
+            }
+            .row5{
+                font-size: 10px;
+                background-color: rgb(24, 24, 24);
+                color: rgb(255, 210, 10);
+                padding: 15px 0px 20px 0px;
+            }
+            .row4{
+                    background: url(csk/msdblack.jpg) no-repeat center;
+                    background-size: contain;
+                }
+                @media only screen and (max-width:768px){
+                .logo{
+                    width: 200px;
+                }
+                h1,h2,h3,p{
+                    margin: 0px;
+                    padding: 5px;
+                }
+                .row1{
+                    padding: 10px 40px;
+                }
+                .col1{
+                    width: 40%;
+                    padding-left: 5px;
+                }
+                .col2{
+                    width: 60%;
+                }
+                .sub{
+                    width: 50%;
+                    min-height: 250px;
+                }
+                .sub h3,p{
+                    margin: 0%;
+                    padding: 5px;
+                }
+                .row3,.row4{
+                    padding-bottom: 60px;
+                }
+                .row4 h2{
+                    padding: 15px;
+                }
+                .tab1,.tab2{
+                    min-height: 265px;
+                }
+                .tab1 ul, .tab2 ul{
+                    font-size: 1em;
+                }
+                .row5{
+                    padding: 15px 0px;
+                }
+            }
+            @media only screen and (max-width:576px){
+                .col1,.col2{
+                    text-align: center;
+                    padding: 0px;
+                }
+                .col1{
+                    min-height: 150px;
+                }
+                .logo{
+                    width: 180px;
+                }
+                .col2 button{
+                margin: 10px 0px 0px 0px;
+                }
+                .col2{
+                    min-height: 180px;
+                }
+                .menu{
+                    font-size: 12px;
+                }
+                h1{
+                    font-size: 30px;
+                }
+                .row3 h2{
+                    padding: 10px;
+                }
+                .row3{
+                background:url(csk/cskwall.jpg) repeat center fixed;
+                background-size:contain;
+                padding-top: 30px;
+                }
+                .col1,.col2, .tab1, .tab2{
+                    width: 100%;
+                }
+                .tab1,.tab2{
+                    min-height: 200px;
+                }
+                .row3,.row4{
+                    padding-bottom: 40px;
+                }
+                .gallery{
+                    background-color: hsl(47deg 97% 48% / 36%);
+                }
+                .row5{
+                    font-size: 8px;
+                }
+                .sub{
+                    width:100%;
+                    min-height:200px;
+                    text-align:center;
+                }
+            }    
+        </style>
+    </head>
+    <body>
+            <div class="row1">
+                <div class="col1">
+                    <img src="csk/csklogo.jpg" alt="display pic" class="logo">
+                </div>
+                <div class="col2">
+                    <h1>Chennai Super Kings</h1>
+                    <h2>IPL Team<br>
+                        Chennai, TN<br>
+                        Whistle Podu 
+                    </h2>
+                    <button name="butEmail">Email</button>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="row2">
+                <ul>
+                    <li class="menu">Matches</li>
+                    <li class="menu">Records</li>
+                    <li class="menu">Contact</li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="row3">
+                <div class="box">
+                    <div class="gallery">
+                        <h2>Gallery</h2>
+                    </div>
+                    <div class="sub">
+                        <img src="csk/faf.jpg" alt="Faf">
+                        <h3>Faf du Plessis</h3>
+                        <p>South Africa</p>
+                    </div>
+                    <div class="sub">
+                        <img src="csk/raina.jpg" alt="Raina">
+                        <h3>Suresh Raina (vc)</h3>
+                        <p>India</p>
+                    </div>
+                    <!-- gap in height -->
+                    <div class="sub">
+                        <img src="csk/jadeja.jpg" alt="Jadeja">
+                        <h3>Ravindra Jadeja</h3>
+                        <p>India</p>
+                    </div>
+                    <div class="sub">
+                        <img src="csk/samcurran.jpg" alt="Sam">
+                        <h3>Sam Curran</h3>
+                        <p>England</p>
+                    </div>
+                    <div class="sub">
+                        <img src="csk/msd.jpg" alt="MSD">
+                        <h3>MS Dhoni (c)(wk)</h3>     
+                        <p>India</p>                
+                    </div>
+                    <div class="sub">
+                        <img src="csk/tahir.jpg" alt="Tahir">
+                        <h3>Imran Tahir</h3>
+                        <p>South-Africa</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="row4">
+                <div class="error">
+                    <h2>About Team</h2>
+                </div>
+                <div class="box">
+                    <div class="tab1">
+                        <h3>Team Info</h3>
+                        <ul>
+                            <li class="list">CSK Cricket Ltd (current owner) </li>
+                            <li class="list">Stephen Fleming (coach)</li>
+                            <li class="list">MA Chidambaram Stadium (home)</li>
+                            <li class="list">IPL wins - 3</li>
+                            <li class="list">CLT20 wins - 2</li>
+                        </ul>
+                    </div>
+                    <div class="tab2">
+                        <h3>Facts</h3>
+                        <ul>
+                            <li class="list">Most Fair Play Awards - 6</li>
+                            <li class="list">Highest Win Percentage - 61.28</li>
+                            <li class="list">8 times Finalist</li>
+                            <li class="list">Team with Most Sixes</li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="row5">
+                <p>I do not own the Copyright. Credits to the content owner.</p>
+            </div>
+    </body>
+
+</html>
