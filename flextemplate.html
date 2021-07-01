@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flex</title>
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+            *{
+                box-sizing: border-box;
+                font-family: 'Montserrat', sans-serif;
+            }
+            img{
+                max-width: 100%;
+            }
+            .l1,.l2,.l3,.l4,.l5{
+                width: 100%;
+            }
+            .l2,.l4{
+                background: url(images/black.jpg) center;
+                background-size: cover;
+                color: white;
+            }
+            .l3{
+                background-color: black;
+                color: white;
+            }
+            h1,p,body,h2,ul{
+                margin: 0%;
+            }
+            h1,.welcome p{
+                font-size: 40px;
+            }
+            .row1,.row2,.row3,.row4,.row5{
+                width: 85%;
+                margin: auto;
+            }
+            .row2,.row3,.row4,.row5{
+                padding: 40px 0px;
+            }
+            h2{
+                font-size: 26px;
+            }
+            .tile>img{
+                padding: 20px 0px;
+            }
+            .pad10{
+                padding: 10px 0px;
+            }
+            .note{
+                padding: 5px 20px;
+            }
+            .row1{
+                display: flex;
+                flex-wrap: wrap;
+                padding: 20px 0px;
+            }
+            .title{
+                flex-basis: 55%;
+            }
+            .red,p>a{
+                color: rgba(255, 0, 0, 0.774);
+            }
+            .grey{
+                color: rgba(199, 199, 199, 0.644);
+            }
+            a{
+                text-decoration: none;
+            }
+            .menu{
+                display: flex;
+                flex-basis: 45%;
+                flex-shrink: 0;
+            }
+            .menuitems{
+                border-radius: 50%;
+                padding: 25px 10px 15px 10px;
+                text-align: center;
+                flex-basis: 20%;
+                cursor: pointer;
+            }
+            .menuitems:first-child{
+                color: white;
+                background-color: rgb(255, 53, 53);
+            }
+            .menuitems:nth-child(2)::after{
+                content: "\2B9F";
+            }
+            .row2,.undercover{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .cover,.undercover{
+                flex-basis: 100%;
+            }
+            .picside{
+                width: 10%;
+                background:black url(images/bg.jpg);
+            }
+            .picmain{
+                width: 60%;
+                background:black url(images/sample2.jpg);
+            }
+            .picside,.picmain{
+                min-height: 350px;
+                float: left;
+                background-size: cover;
+                background-position: center;
+            }
+            .undercover{
+                display: flex;
+                padding-top: 40px;
+            }
+            .welcome{
+                flex-basis: 20%;
+            }
+            .info{
+                flex-basis: 80%;
+                padding: 0px 25px;
+                border-left: groove 1px rgba(199, 199, 199, 0.644);
+            }
+            .row3{
+                display: flex;
+                justify-content: space-between;
+            }
+            .tile{
+                flex-basis: 23%;
+            }
+            .sub{
+                font-weight: bold;
+            }
+            .more{
+                border: none;
+                margin: 20px 0px;
+                padding: 5px 10px;
+                color: white;
+                background-color: rgb(255, 53, 53);
+            }
+            .row4{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .short,.gallery{
+                display: flex;
+                flex-basis: 50%;
+                flex-wrap: wrap;
+            }
+            .header,.bottom,.header2,.photos{
+                flex-basis: 100%;
+                flex-shrink: 0;
+            }
+            .header>h2,.header2>h2{
+                padding-bottom: 20px;
+            }
+            .bottom{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .bottom,.photos{
+                min-height: 280px;
+            }
+            .sidenote,.profile,.left,.right,.copyright,.icons{
+                flex-basis: 50%;
+            }
+            .profile{
+                background:black url(images/sample2.jpg);
+                background-size: cover;
+                background-position: center;
+                flex-grow: 1;
+                flex-shrink: 0;
+            }
+            .sidenote{
+                display: flex;
+                flex-shrink: 0;
+                flex-wrap: wrap;
+            }
+            hr{
+                border-style: inset;
+                border-width: 0.5px;
+                border-color: rgba(199, 199, 199, 0.281);
+            }
+            .note,.topics{
+                flex-basis: 100%;
+            }
+            .topics{
+                display: flex;
+                padding: 0px 18px;
+                font-size: 14px;
+                flex-shrink: 0;
+            }
+            ul{
+                list-style-type:none;
+                padding: 0px;
+            }
+            li{
+                padding: 2px 0px;
+            }
+            li::before{
+                content: "\1F896    ";
+            }
+            .photos{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .gallerypic{
+                flex-basis: 23%;
+                min-height: 85px;
+            }
+            .middle{
+                margin: 5px 0px;
+            }
+            .row5,.icons{
+                display: flex;
+            }
+            .copyright,.grey{
+                font-size: 14px;
+            }
+            .icons{
+                justify-content:flex-end;
+            }
+            .icon img{
+                height: 22px;
+                width: 25px;
+            }
+            .icon{
+                margin-right: 5px;
+            }
+            button,li,.icon img:hover{
+                cursor: pointer;
+            }
+            .menuitems:hover,button:hover{
+                background-color: rgb(26 29 36 / 98%);
+            }
+            .menuitems:hover,.info a:hover,li:hover{
+                color: white;
+            }
+            button:hover{
+                color: rgb(255, 53, 53);
+                border: white outset 2px;
+            }
+            .icon:hover{
+                border: solid 2px white;
+            }
+            @media only screen and (max-width:1024px){
+                .welcome>p{
+                    font-size: 30px;
+                }
+                .bottom,.photos{
+                    min-height: 340px;
+                }
+                .gallerypic{
+                    flex-basis: 30%;
+                    min-height: 80px;
+                }
+            }
+            @media only screen and (max-width:768px){
+                .row1,.row4{
+                    flex-direction: column;
+                }
+                h2{
+                    font-size: 22px;
+                }
+                .title{
+                    text-align: center;
+                }
+                .menu{
+                    min-height: 100px;
+                }
+                .menuitems{
+                    padding-top: 40px;
+                }
+                .picside,.picmain{
+                    min-height: 250px;
+                }
+                .welcome{
+                    flex-basis: 22%;
+                }
+                .info{
+                    flex-basis: 78%;
+                }
+                .welcome>p{
+                    font-size: 25px;
+                }
+                .gallery{
+                    padding-top: 25px;
+                }
+                .gallerypic{
+                    flex-basis: 23%;
+                }
+                .bottom,.photos{
+                    min-height: 270px;
+                }
+                li{
+                    padding: 5px;
+                }
+                .row5{
+                    padding: 25px 0px;
+                }
+                .menu{
+                    justify-content: center;
+                }
+                .menuitems{
+                    flex-basis: 15%;
+                }
+                .menu{
+                    max-height: 100px;
+                }
+                .note{
+                    padding-right: 0px;
+                }
+                .copyright,.grey{
+                    font-size: 12px;
+                }
+                .icon img{
+                    height: 19px;
+                    width: 22px;
+                }
+            }
+            @media only screen and (max-width:430px){
+                .l4{
+                    background-attachment: fixed;
+                }
+                .row1,.row2,.row4,.undercover{
+                    width: 100%;
+                    flex-direction: column;
+                }
+                .menu{
+                    min-height: 70px;
+                }
+                .menuitems{
+                    font-size: 12px;
+                    padding-top: 25px;
+                }
+                .info{
+                    border-left: none;
+                }
+                .cover,.short,.gallery{
+                    padding: 0px 15px;
+                }
+                .picside,.picmain{
+                    min-height: 180px;
+                }
+                .welcome,.info,.copyright{
+                    text-align: center;
+                }
+                .undercover,.info,.sidenote,.gallery,.icons{
+                    padding-top: 15px;
+                }
+                .row3{
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+                .tile{
+                    flex-basis: 48%;
+                }
+                .bottom,.row5{
+                    flex-direction: column;
+                }
+                .profile{
+                    min-height: 250px;
+                }
+                .note,.topics{
+                    padding: 5px 10px;
+                }
+                hr{
+                    width: 95%;
+                    margin-left: 0;
+                }
+                li{
+                    padding: 2px 0px;
+                }
+                .gallerypic{
+                    flex-basis: 30%;
+                }
+                .middle{
+                    margin: 0%;
+                }
+                .icons,.copyright{
+                    justify-content: center;
+                }
+                .icon{
+                    margin: 0px 3px;
+                }
+                .icon img{
+                    height: 17px;
+                    width: 20px;
+                }
+                @media only screen and (max-width:320px){
+                    .picside,.picmain{
+                        min-height: 160px;
+                    }
+                    .tile{
+                        flex-basis: 100%;
+                    }
+                    .gallerypic{
+                        flex-basis: 48%;
+                        min-height: 90px;
+                    }
+                    .row5{
+                        padding: 15px 0px;
+                    }
+                    .copyright{
+                        font-size: 10px;
+                    }
+                    .icon img{
+                        height: 14px;
+                        width: 17px;
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="l1">
+            <div class="row1">
+                <div class="title">
+                    <h1><span class="red">F</span>lex<span class="red">T</span>emplate</h1>
+                    <p>Responsive Template</p>
+                </div>
+                <div class="menu">
+                    <div class="menuitems">
+                        <p>About</p>
+                    </div>
+                    <div class="menuitems">
+                        <p>Services</p>
+                    </div>
+                    <div class="menuitems">
+                        <p>Folio</p>
+                    </div>
+                    <div class="menuitems">
+                        <p>Blog</p>
+                    </div>
+                    <div class="menuitems">
+                        <p>Contact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="l2">
+            <div class="row2">
+                <div class="cover">
+                    <div class="picside"></div>
+                    <div class="picside"></div>
+                    <div class="picside"></div>
+                    <div class="picside"></div>
+                    <div class="picmain"></div>
+                </div>
+                <div class="undercover">
+                    <div class="welcome">
+                        <p><span class="red">W</span>elcome!</p>
+                    </div>
+                    <div class="info">
+                        <p class="grey"><a href="" class="red">Click here</a> for more information about this template created by me. This is
+                        a sample text. the content goes here.. the content goes here.. the content goes here.. the content goes here..
+                        a sample text. the content goes here.. the content goes here.. the content goes here.. the content goes here..
+                        a sample text. the content goes here.. the content goes here.. the content goes here.. the content goes here..
+                        a sample text </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="l3">
+            <div class="row3">
+                <div class="tile">
+                    <h2>The Heading</h2>
+                    <img src="images/sample1.png" alt="sample img">
+                    <p class="sub">This is the sub heading</p>
+                    <p class="grey">The content goes here.. The content goes here.. The content goes here.. </p>
+                    <button class="more">Read More</button>
+                </div>
+                <div class="tile">
+                    <h2>The Heading</h2>
+                    <img src="images/sample1.png" alt="sample img">
+                    <p class="sub">This is the sub heading</p>
+                    <p class="grey">The content goes here.. The content goes here.. The content goes here.. </p>
+                    <button class="more">Read More</button>
+                </div>
+                <div class="tile">
+                    <h2>The Heading</h2>
+                    <img src="images/sample1.png" alt="sample img">
+                    <p class="sub">This is the sub heading</p>
+                    <p class="grey">The content goes here.. The content goes here.. The content goes here.. </p>
+                    <button class="more">Read More</button>
+                </div>
+                <div class="tile">
+                    <h2>The Heading</h2>
+                    <img src="images/sample1.png" alt="sample img">
+                    <p class="sub">This is the sub heading</p>
+                    <p class="grey">The content goes here.. The content goes here.. The content goes here.. </p>
+                    <button class="more">Read More</button>
+                </div>
+            </div>
+        </div>
+        <div class="l4">
+            <div class="row4">
+                <div class="short">
+                    <div class="header">
+                        <h2>Shortly about Page</h2>
+                    </div>
+                    <div class="bottom">
+                        <div class="profile"></div>
+                        <div class="sidenote">
+                            <div class="note">
+                                <p class="sub">
+                                    The content goes here.. The content goes here.. The content goes here.. 
+                                </p>
+                                <p class="grey pad10">These are the extra contents These are the extra contents These are the extra contents 
+                                These are the extra contents These are the extra contents These are the extra contents</p>
+                                <hr>
+                            </div>
+                            <div class="topics red">
+                                <div class="left">
+                                    <ul>
+                                        <li>Topic 1</li>
+                                        <li>Topic 2</li>
+                                        <li>Topic 3</li>
+                                        <li>Topic 4</li>
+                                    </ul>
+                                </div>
+                                <div class="right">
+                                    <ul>
+                                        <li>Topic 5</li>
+                                        <li>Topic 6</li>
+                                        <li>Topic 7</li>
+                                        <li>Topic 8</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery">
+                    <div class="header2">
+                        <h2>Latest Photos</h2>
+                    </div>
+                    <div class="photos">
+                        <div class="gallerypic"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic middle"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic middle"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic middle"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic middle"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic"><img src="images/sample3.jpg" alt="sample pic"></div>
+                        <div class="gallerypic"><img src="images/sample3.jpg" alt="sample pic"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="l5">
+            <div class="row5">
+                <div class="copyright">
+                    <p>&#169; Copyright</p>
+                </div>
+                <div class="icons">
+                    <div class="icon"><img src="images/facebook.png" alt="fb"></div>
+                    <div class="icon"><img src="images/instagram.png" alt="insta"></div>
+                    <div class="icon"><img src="images/youtube.png" alt="ytube"></div>
+                    <div class="icon"><img src="images/whatsapp.png" alt="whatsap"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
