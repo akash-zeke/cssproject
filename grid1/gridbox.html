@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
+        <style>
+            *{
+                box-sizing: border-box;
+                font-family: 'Montserrat', sans-serif;
+            }
+            img{
+                max-width: 100%;
+            }
+            body,h1,p,h2,h3{
+                margin: 0;
+            }
+            .table{
+                display: grid;
+                grid-template-columns: 20% 80%;
+            }
+            .c1{
+                height: 600vh;
+                display: flex;
+                flex-direction: column;
+                background-color: grey;
+            }
+            .c2{
+                display: grid;
+                grid-template-rows: 520px 600vh 100px;
+            }
+            .header{
+                text-align: center;
+                text-transform: uppercase;
+                background: black url(theatrebg.jpg) no-repeat center center;
+                background-size: cover;
+                padding: 170px 0px 20px 0px;
+                color: blanchedalmond;
+            }
+            .header p{
+                padding: 30px 0px;
+                letter-spacing: 1px;
+            }
+            .readmore,.loadmore{
+                font-weight: bold;
+                font-size: 12px;
+                padding:10px 15px;
+                text-transform: uppercase;
+                color: white;
+            }
+            .readmore{
+                background-color: grey;
+            }
+            .switch{
+                padding-top: 90px;
+            }
+            [type="radio"]{
+                height: 0.5em;
+                width: 0.5em;
+                border: 1px solid black;
+            }
+            .logo{
+                padding:30px 0px;
+            }
+            .menu{
+                text-transform: uppercase;
+                text-align: center;    
+            }
+            .menu div{
+                font-size: 13px;
+                padding: 15px 0px;
+                margin: 1px 0px;
+                background-color: rgb(83, 83, 83);
+            }
+            .menu a{
+                text-decoration: none;
+                color: blanchedalmond;
+            }
+            .main{
+                display: grid;
+                grid-template-columns: 85%;
+                justify-content: center;
+                grid-template-rows: 200px 980px 550px 1000px 1000px;
+            }
+            .r1{
+                text-align: center;
+                padding: 40px 0px;
+            }
+            .welcome{
+                font-size: 28px;
+                color: rgb(34, 127, 214);
+                text-transform: uppercase;
+            }
+            span{
+                color: rgb(34, 127, 214);
+            }
+            .welcomenote{
+                font-size: 14px;
+                padding-top: 10px;
+            }
+            .r2{
+                border-top: 4px solid rgb(253, 195, 36);
+                display: grid;
+                grid-template-rows: 48px 580px 30%;
+                padding-bottom: 30px;
+            }
+            .heading{
+                display: inline-block;
+                font-size: 19px;
+                padding: 12px 30px;
+                text-transform: uppercase;
+                border: 3px solid;
+                border-top: none;
+                color: white;
+            }
+            .about{
+                background-color: rgb(255, 219, 16);
+                border-color:  rgb(253, 195, 36);
+            }
+            .pics{
+                padding: 30px 0px 40px 0px;
+                display: grid;
+                grid-template-columns: 32% 32% 32%;
+                justify-content: space-between;
+                text-align: center;
+            }
+            .pics h3{
+                padding: 15px 0px;
+            }
+            .pics h3,.aboutkw .subheading{
+                color: rgb(253, 195, 36);
+            }
+            .tile p{
+                font-size: 14px;
+            }
+            .aboutkw{
+                display: grid;
+                grid-template-columns: 65% auto;
+            }
+            .subheading{
+                padding: 10px 0px;
+                text-transform: uppercase;
+                font-size: 19px;
+            }
+            .text{
+                font-size: 14px;
+                line-height: 1.8em;
+                padding: 10px 0px;
+            }
+            .right img{
+                float: right;
+                max-height: 270px;
+            }
+            .clear{
+                clear: both;
+            }
+            .r3{
+                border-top: 4px solid rgb(183, 2, 255);
+                padding-bottom: 40px;
+            }
+            .ktalk{
+                background-color: rgb(199 69 217);
+                border-color: rgb(183, 2, 255);
+                max-height: 48px;
+            }
+            .board{
+                display: grid;
+                grid-template-columns: 31% 31% 31%;
+                justify-content: space-between;
+                padding: 40px 0px;
+            }
+            .topics{
+                background-color: rgb(199 69 217);
+                padding: 15px 25px;
+                font-size: 30px;
+                color: white;
+            }
+            .topics img{
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                margin-right: 20px;
+            }
+            .facts{
+                display: grid;
+                grid-template-columns: 70% auto;
+            }
+            .fleft .subheading{
+                color:rgb(199 69 217);
+            }
+            ul{
+                padding: 0px;
+                font-size: 14px;
+            }
+            li{
+                list-style: none;
+                padding: 5px 15px 5px 0px;
+            }
+            .fright{
+                padding: 50px 0px;
+            }
+            .r4{
+                border-top: 4px solid rgb(9, 150, 9);
+            }
+            .gallery{
+                background-color: rgb(120, 204, 24);
+                border-color: rgb(9, 150, 9);
+            }
+            .gallerypics{
+                padding: 40px 0px;
+                display: grid;
+                grid-template-columns: 32% 32% 32%;
+                justify-content:space-between;
+                grid-row-gap: 20px;
+                text-align: center;
+            }
+            .gallerypics h3{
+                padding: 15px 0px;
+                color: rgb(9, 150, 9);
+            }
+            .load{
+                padding-top: 20px;
+                text-align: center;
+            }
+            .loadmore{
+                background-color: rgb(120, 204, 24);
+                border: none;
+                border-bottom: 4px solid rgb(9, 150, 9);
+            }
+            .r5{
+                border-top: 4px solid rgb(223, 45, 184);
+            }
+            .contact{
+                background-color: rgb(253, 77, 215);
+                border-color:rgb(223, 45, 184);
+            }
+            .map{
+                padding:30px 0px;
+                text-align: center;
+            }
+            .mapimg{
+                width: 80%;
+            }
+            .form{
+                display: grid;
+                grid-template-columns: 31% 31% 31%;
+                justify-content: space-between;
+            }
+            #txt{
+                height: 30px;
+            }
+            .message{
+                grid-column: 1/4;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="table">
+            <div class="c1">
+                <div class="logo">
+                    <img src="logo.jpg" alt="title">
+                </div>
+                <div class="menu">
+                    <div class="menu1"><a href="">Home</a></div>
+                    <div class="menu2"><a href="">About</a></div>
+                    <div class="menu3"><a href="">Kolly Talk</a></div>
+                    <div class="menu4"><a href="">Gallery</a></div>
+                    <div class="menu5"><a href="">Contact</a></div>
+                </div>
+            </div>
+            <div class="c2">
+                <div class="header">
+                    <h1>responsive layout</h1>
+                    <p>it is a cinema themed responsive grid template</p>
+                    <button name="btnread" class="readmore">read more</button>
+                    <div class="switch">
+                        <input type="radio" name="radbtn1">
+                        <input type="radio" name="radbtn2">
+                        <input type="radio" name="radbtn3">
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="r1">
+                        <p class="welcome">Welcome to template</p>
+                        <p class="welcomenote">This template is filled with some random Images of <span>Kollywood</span> cinema.</p>
+                        <p class="welcomenote">The images and contents show my personal favourites.</p>
+                    </div>
+                    <div class="r2">
+                        <div>
+                            <div class="about heading">
+                                <p>About</p>
+                            </div>
+                        </div>
+                        <div class="pics">
+                            <div class="tile">
+                                <img src="kamal.jpg" alt="kamal hassan">
+                                <h3>Kamal Hassan</h3>
+                                <p>Known as Ulaga Nayagan</p>
+                            </div>
+                            <div class="tile">
+                                <img src="ajith.jpg" alt="ajith kumar">
+                                <h3>Ajith Kumar</h3>
+                                <p>Known as Thala</p>
+                            </div>
+                            <div class="tile">
+                                <img src="simbu.jpg" alt="simbu">
+                                <h3>Silambarasan</h3>
+                                <p>Known as Young Super Star</p>
+                            </div>
+                        </div>
+                        <div class="aboutkw">
+                            <div class="left">
+                                <p class="subheading">kollywood</p>
+                                <p class="text">Tamil cinema is the Indian filmmaking industry of Tamil language motion pictures. 
+                                    It is based in Chennai, Tamil Nadu, India, in the Kodambakkam neighbourhood, 
+                                    leading to the industry's nickname Kollywood, the word being a portmanteau of 
+                                    Kodambakkam and Hollywood.</p>
+                                <p class="text">Over the last quarter of the 20th century, Tamil films from India established a 
+                                    global presence through distribution to an increasing number of overseas theatres 
+                                    in Singapore, Sri Lanka, Malaysia, Japan, the Middle East, parts of Africa, Oceania, 
+                                    Europe, North America and other countries.</p>
+                            </div>
+                            <div class="right">
+                                <img src="rajini.jpg" alt="rajinikanth">
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r3">
+                        <div class="ktalk heading">
+                            <p>kolly talk</p>
+                        </div>
+                        <div class="board">
+                            <div class="topics">
+                                <img src="logo2.jpg" alt="logo"> Movies
+                            </div>
+                            <div class="topics">
+                                <img src="logo3.png" alt="logo"> Short Films
+                            </div>
+                            <div class="topics">
+                                <img src="logo4.png" alt="logo"> Series
+                            </div>
+                        </div>
+                        <div class="facts">
+                            <div class="fleft">
+                                <p class="subheading">Kolly Facts</p>
+                                <ul>
+                                    <li>The first silent film in Tamil was created by Nataraja R. Mudaliar. 
+                                        He made ‘Keechaka Vadham’ in 1916</li>
+                                    <li>A.Narayanan’s 1934 film Srinivasa Kalyanam was the first Tamil talkie.</li>
+                                    <li>The first female director and producer of Tamil cinema was T.P Rajalakshmi.</li>
+                                    <li>50’s and 60’s of Tamil Cinema was ruled by M.G.Ramachandran(M.G.R), 
+                                        Sivaji Ganesan and Gemini Ganesan</li>
+                                    <li>The mid-late seventies and early eighties actors Kamal Haasan and Rajinikanth 
+                                        witnessed by Tamil cinema.</li>
+                                    <li>amil Cinema has an excellent Box Office records in India as well as Outside India. 
+                                        Rajinikanth and Vijay are considered as the Box Office kings of Tamil Cinema.</li>
+                                </ul>
+                            </div>
+                            <div class="fright">
+                                <img src="stats.jpg" alt="stats">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r4">
+                        <div>
+                            <p class="gallery heading">Gallery</p>
+                        </div>
+                        <div class="gallerypics">
+                            <div><img src="vijay.jpg" alt="vijay"><h3>Vijay</h3></div>
+                            <div><img src="sivaji.jpg" alt="Rajinikanth"><h3>Rajinikanth</h3></div>
+                            <div><img src="nazriya.jpg" alt="nazriya"><h3>Nazriya</h3></div>
+                            <div><img src="dhanush.jpg" alt="dhanush"><h3>Dhanush</h3></div>
+                            <div><img src="malu.jpg" alt="malavika"><h3>Malavika</h3></div>
+                            <div><img src="suriya.jpg" alt="suriya"><h3>Suriya</h3></div>
+                        </div>
+                        <div class="load">
+                            <button name="btnload" class="loadmore">load more</button>
+                        </div>
+                    </div>
+                    <div class="r5">
+                        <div class="contact heading">
+                            <p>Contact</p>
+                        </div>
+                        <div class="map">
+                            <img src="location.png" alt="map" class="mapimg">
+                        </div>
+                        <div class="form">
+                            <div>
+                                <p>Name: <span>*</span></p><input id="txt" type="text" name="txtName" size="25" maxlength="28"
+                                required>
+                            </div>
+                            <div>
+                                <p>E-mail: <span>*</span></p><input id="txt" type="email" name="emEmail" size="25" maxlength="30"
+                                required placeholder="ex: xyz@email.com">
+                            </div>
+                            <div>
+                                <p>Subject:</p><input type="text" name="txtsubj" size="25" id="txt">
+                            </div>
+                            <div class="message">
+                                <p>Message: <span>*</span></p><textarea name="txtarMsg" cols="128" rows="10" 
+                                placeholder="Type your message here.." required maxlength="150"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
