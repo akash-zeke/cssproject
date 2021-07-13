@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kolly Grid</title>
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
+        <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+            *{
+                box-sizing: border-box;
+                font-family: 'Montserrat', sans-serif;
+            }
+            img{
+                max-width: 100%;
+            }
+            body,h1,p,h2,h3{
+                margin: 0;
+            }
+            h1{
+                font-weight: 800;
+            }
+            .table{
+                width: 100%;
+                display: grid;
+                grid-template-columns: 20% 80%;
+            }
+            .c1{
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                background-color: #354147;
+            }
+            .c2{
+                display: grid;
+                grid-template-rows: auto auto auto;
+            }
+            .header{
+                min-height: 520px;
+                text-align: center;
+                text-transform: uppercase;
+                background: black url(theatrebg.jpg) no-repeat center center;
+                background-size: cover;
+                padding: 170px 0px 20px 0px;
+                color: white;
+            }
+            .header p{
+                padding: 30px 0px;
+                letter-spacing: 1px;
+            }
+            .readmore,.loadmore,.sendmsg{
+                font-weight: bold;
+                font-size: 12px;
+                padding:10px 15px;
+                text-transform: uppercase;
+                color: white;
+            }
+            .readmore{
+                background-color: #3b8cf3;
+                border: none;
+                border-bottom: 4px solid #004fb6;
+            }
+            .switch{
+                padding-top: 90px;
+            }
+            [type="radio"]{
+                height: 0.5em;
+                width: 0.5em;
+                border: 1px solid black;
+            }
+            .logo{
+                padding:30px 0px;
+            }
+            .menu{
+                text-transform: uppercase;
+                text-align: center;    
+            }
+            .menu div{
+                font-size: 13px;
+                padding: 15px 0px;
+                margin: 1px 0px;
+                background-color: #333333;
+            }
+            .menu a{
+                text-decoration: none;
+                color: white;
+            }
+            .main{
+                display: grid;
+                grid-template-columns: 85%;
+                justify-content: center;
+                grid-template-rows: auto auto auto auto auto;
+            }
+            .r1{
+                text-align: center;
+                padding: 70px 0px;
+            }
+            .welcome{
+                font-size: 28px;
+                color: rgb(34, 127, 214);
+                text-transform: uppercase;
+            }
+            span{
+                color: rgb(34, 127, 214);
+            }
+            .welcomenote{
+                font-size: 14px;
+                padding-top: 10px;
+            }
+            .r2{
+                border-top: 4px solid rgb(253, 195, 36);
+                display: grid;
+                grid-template-rows: auto auto auto;
+                padding-bottom: 70px;
+            }
+            .heading{
+                display: inline-block;
+                font-size: 19px;
+                padding: 12px 30px;
+                text-transform: uppercase;
+                border: 3px solid;
+                border-top: none;
+                color: white;
+            }
+            .about{
+                background-color: rgb(255, 219, 16);
+                border-color:  rgb(253, 195, 36);
+            }
+            .pics{
+                padding: 50px 0px 60px 0px;
+                display: grid;
+                grid-template-columns: 32% 32% 32%;
+                justify-content: space-between;
+                text-align: center;
+            }
+            .pics h3{
+                padding: 15px 0px;
+            }
+            .pics h3,.aboutkw .subheading{
+                color: rgb(253, 195, 36);
+            }
+            .tile p{
+                font-size: 14px;
+            }
+            .aboutkw{
+                display: grid;
+                grid-template-columns: 65% auto;
+            }
+            .subheading{
+                padding: 10px 0px;
+                text-transform: uppercase;
+                font-size: 19px;
+            }
+            .text{
+                font-size: 14px;
+                line-height: 1.8em;
+                padding: 10px 0px;
+            }
+            .right img{
+                float: right;
+                max-height: 270px;
+                padding-top: 20px;
+            }
+            .clear{
+                clear: both;
+            }
+            .r3{
+                border-top: 4px solid #ae05c5;
+            }
+            .r3,.r4,.r5{
+                padding-bottom: 60px;
+            }
+            .ktalk{
+                background-color: rgb(199 69 217);
+                border-color: #ae05c5;
+                max-height: 48px;
+            }
+            .board{
+                display: grid;
+                grid-template-columns: 31% 31% 31%;
+                justify-content: space-between;
+                padding: 50px 0px 60px 0px;
+            }
+            .topics{
+                background-color: rgb(199 69 217);
+                padding: 15px 25px;
+                font-size: 26px;
+                color: white;
+            }
+            .topics img{
+                float: left;
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                margin-right: 20px;
+            }
+            .clear{
+                clear: both;
+            }
+            .facts{
+                display: grid;
+                grid-template-columns: 70% auto;
+                max-height: 300px;
+            }
+            .fleft .subheading{
+                color:#ae05c5;
+            }
+            ul{
+                padding: 0px;
+                font-size: 14px;
+            }
+            li{
+                list-style: none;
+                padding: 5px 15px 5px 0px;
+            }
+            .fright{
+                padding: 50px 0px;
+            }
+            .r4{
+                border-top: 4px solid rgb(9, 150, 9);
+            }
+            .gallery{
+                background-color: rgb(120, 204, 24);
+                border-color: rgb(9, 150, 9);
+            }
+            .gallerypics{
+                padding: 50px 0px;
+                display: grid;
+                grid-template-columns: 32% 32% 32%;
+                justify-content:space-between;
+                grid-row-gap: 20px;
+                text-align: center;
+            }
+            .gallerypics h3{
+                padding: 15px 0px;
+                color: rgb(9, 150, 9);
+                font-weight: 400;
+            }
+            .load{
+                text-align: center;
+            }
+            .loadmore{
+                background-color: rgb(120, 204, 24);
+                border: none;
+                border-bottom: 4px solid rgb(9, 150, 9);
+            }
+            .r5{
+                border-top: 4px solid #c00728
+            }
+            .contact{
+                background-color: #fc4163;
+                border-color:#c00728
+            }
+            .map{
+                padding:30px 0px 40px 0px;
+                text-align: center;
+            }
+            .mapimg{
+                width: 80%;
+                border: 2px solid #fc4163;
+            }
+            .form{
+                display: grid;
+                grid-template-columns: 31% 31% 31%;
+                justify-content: space-between;
+                grid-row-gap: 20px;
+            }
+            .form p{
+                padding: 15px 0px;
+            }
+            #txt{
+                height: 35px;
+                width: 100%;
+            }
+            textarea{
+                width: 100%;
+                resize: none;
+            }
+            .form span{
+                color: tomato;
+            }
+            .message,.send{
+                grid-column: 1/4;
+            }
+            .sendmsg{
+                background-color: #fc4163;
+                border: none;
+                border-bottom: 4px solid #c00728;
+            }
+            .footer{
+                display: grid;
+                grid-template-rows:auto auto;
+                border-left: 2px solid white;
+            }
+            .iconbar{
+                background-color: #354147;
+                text-align: center;
+                padding: 60px 0px;
+            }
+            .iconbar img{
+                width: 35px;
+                height: 35px;
+                margin-left: 5px;
+            }
+            .copy{
+                background-color: #333333;
+                font-size: 14px;
+            }
+            .copy div{
+                width: 85%;
+                margin: auto;
+                padding: 15px 0px;
+                color: rgba(255, 255, 255, 0.377);
+            }
+            button:hover,.iconbar img:hover,.mapimg{
+                cursor: pointer;
+            }
+            .iconbar img:hover{
+                transform: scale(1.3,1.3);
+            }
+            .gallerypics img:hover,.tile img:hover{
+                transform: scale(1.1,1.1);
+            }
+            .menu1{
+                border: none;
+                border-left: 4px solid #3b8cf3;
+            }
+            .menu2{
+                border: none;
+                border-left: 4px solid rgb(255, 219, 16);
+            }
+            .menu3{
+                border: none;
+                border-left: 4px solid rgb(253, 77, 215);
+            }
+            .menu4{
+                border: none;
+                border-left: 4px solid rgb(120, 204, 24);
+            }
+            .menu5{
+                border: none;
+                border-left: 4px solid #fc4163;
+            }
+            .menu1:hover a{
+                color: #3b8cf3;
+            }
+            .menu2:hover a{
+                color: rgb(255, 219, 16);
+            }
+            .menu3:hover a{
+                color: rgb(253, 77, 215);
+            }
+            .menu4:hover a{
+                color: rgb(120, 204, 24);
+            }
+            .menu5:hover a{
+                color: #fc4163;
+            }
+            .top{
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                height: 50px;
+                width: 50px;
+            }
+            .top img{
+                border-radius: 50%;
+                box-shadow: 0px 2px 10px 2px #747474;
+            }
+            .top img:hover{
+                box-shadow: 0px 2px 10px 2px #2e2e2e;
+            }
+            .readmore:hover{
+                background-color: #004fb6;;
+                border-color: #3b8cf3;
+            }
+            .loadmore:hover{
+                border-color: rgb(120, 204, 24);
+                background-color: rgb(9, 150, 9);
+            }
+            .sendmsg:hover{
+                border-color: #fc4163;
+                background-color: #c00728;
+            }
+            @media only screen and (max-width:1184px){
+                .topics{
+                    font-size: 22px;
+                    padding: 15px;
+                }
+            }
+            @media only screen and (max-width:1024px){
+                .header{
+                    min-height: 500px;
+                }
+                li{
+                    padding: 2px 15px 2px 0px;
+                }
+                .iconbar{
+                    padding:50px 0px;
+                }
+                .copy{
+                    font-size: 12px;
+                }
+            }
+            @media only screen and (max-width:768px){
+                .header{
+                    min-height: 400px;
+                    padding-top: 140px;
+                }
+                .header p{
+                    font-size: 14px;
+                }
+                .switch{
+                    padding-top: 60px;
+                }
+                .menu div{
+                    padding: 10px 0px;
+                }
+                .top{
+                    height: 40px;
+                    width: 40px;
+                }
+                .r1{
+                    padding: 50px 0px;
+                }
+                .welcomenote{
+                    font-size: 12px;
+                }
+                .r2,.r3,.r4,.r5{
+                    padding-bottom: 40px;
+                }
+                .heading,.subheading{
+                    font-size: 16px;
+                }
+                .pics{
+                    padding: 30px 0px;
+                }
+                .text {
+                    font-size: 12px;
+                    line-height: 1.5em;
+                }
+                .board{
+                    padding: 30px 0px;
+                }
+                .topics{
+                    font-size: 18px;
+                    padding: 10px 10px;
+                }
+                .topics img{
+                    margin-right: 10px;
+                    height: 25px;
+                    width: 25px;
+                }
+                ul{
+                    margin: 0;
+                    font-size: 11px;
+                }
+                .readmore, .loadmore, .sendmsg {
+                    font-size: 10px;
+                }
+                .gallerypics h3{
+                    padding: 10px 0px;
+                    font-size: 15px;
+                }
+                .mapimg{
+                    width: 70%;
+                }
+                .form p{
+                    font-size: 12px;
+                    padding: 10px 0px;
+                }
+                #txt{
+                    height: 25px;
+                }
+                textarea{
+                    height: 100px;
+                }
+                .iconbar{
+                    padding: 30px 0px;
+                }
+                .iconbar img{
+                    height: 25px;
+                    width: 25px;
+                }
+                img[src="in.png"]{
+                    margin-left: 2px;
+                }
+                .copy{
+                    font-size: 10px;
+                }
+            }
+            @media only screen and (max-width:426px){
+                .top{
+                    height: 35px;
+                    width: 35px;
+                }
+                .c1,.c2,.left,.right{
+                    grid-column: 1/3;
+                }
+                .logo{
+                    padding: 0px;
+                    max-height: 250px;
+                }
+                .header h1{
+                    font-size: 26px;
+                }
+                .header p,.menu a,.tile p{
+                    font-size: 12px;
+                }
+                button,.copy{
+                    font-size: 8px;
+                }
+                .header{
+                    min-height: 340px;
+                    padding: 120px 0px 10px;
+                }
+                .switch{
+                    padding-top: 30px;
+                }
+                .welcome{
+                    font-size: 22px;
+                    padding-bottom: 5px;
+                }   
+                .welcomenote{
+                    padding-top: 5px;
+                    font-size: 11px;
+                }
+                .r1{
+                    padding: 30px 0px;
+                }
+                .heading, .subheading{
+                    font-size: 14px;
+                }
+                .heading{
+                    padding: 8px 12px;
+                }
+                .pics{
+                    padding: 20px 0px;
+                    grid-template-columns: 80%;
+                    justify-content: center;
+                }
+                .tile{
+                    padding-top: 20px;
+                }
+                h3{
+                font-size: 16px;
+                }
+                .right img {
+                    float: none;
+                    max-height: none;
+                    padding-top: 20px;
+                }
+                li{
+                    padding: 3px 0px;
+                }
+                .board{
+                    grid-template-columns: 45%;
+                    justify-content: center;
+                    grid-row-gap: 10px;
+                }
+                .topics{
+                    font-size: 18px;
+                }
+                .topics img,.iconbar img{
+                    height: 20px;
+                    width: 20px;
+                }
+                .facts{
+                    grid-template-columns: 100%;
+                    max-height: none;
+                }
+                .fright,.iconbar{
+                    padding: 20px 0px;
+                }
+                .gallerypics{
+                    grid-template-columns: 48% 48%;
+                    padding: 30px 0px 20px;
+                }
+                .map{
+                    padding: 30px 0px;
+                }
+                .mapimg,.form{
+                    width: 90%;
+                }
+                .form{
+                    margin: auto;
+                    grid-template-columns: 100%;
+                }
+                .message, .send {
+                    grid-column: 1/2;
+                }
+                .send{
+                    text-align: center;
+                }
+                .r3{
+                    padding-bottom: 20px;
+                }
+            @media only screen and (max-width:376px){
+                .logo{
+                    max-height: 210px;
+                }   
+                .board{
+                    grid-template-columns: 53%;
+                }
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="top">
+            <a href="#topmenu"><img src="vikr.jpg" alt="go to top"></a>
+        </div>
+        <div class="table">
+            <div class="c1">
+                <a name="topmenu"></a>
+                <div class="logo">
+                    <img src="logo.jpg" alt="title">
+                </div>
+                <div class="menu">
+                    <div class="menu1"><a href="#hom">Home</a></div>
+                    <div class="menu2"><a href="#abt">About</a></div>
+                    <div class="menu3"><a href="#kollytalk">Kolly Talk</a></div>
+                    <div class="menu4"><a href="#gal">Gallery</a></div>
+                    <div class="menu5"><a href="#adr">Contact</a></div>
+                </div>
+            </div>
+            <div class="c2">
+                <div class="header">
+                    <h1>responsive layout</h1>
+                    <p>it is a cinema themed responsive grid template</p>
+                    <button name="btnread" class="readmore">read more</button>
+                    <div class="switch">
+                        <input type="radio" name="radbtn1">
+                        <input type="radio" name="radbtn2">
+                        <input type="radio" name="radbtn3">
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="r1">
+                        <a name="hom"></a>
+                        <p class="welcome">Welcome to template</p>
+                        <p class="welcomenote">This template is filled with some random Images of <span>Kollywood</span> cinema.</p>
+                        <p class="welcomenote">The images and contents show my personal favourites.</p>
+                    </div>
+                    <div class="r2">
+                        <div>
+                            <a name="abt"></a>
+                            <div class="about heading">
+                                <p>About</p>
+                            </div>
+                        </div>
+                        <div class="pics">
+                            <div class="tile">
+                                <img src="kamal.jpg" alt="kamal hassan">
+                                <h3>Kamal Hassan</h3>
+                                <p>Known as Ulaga Nayagan</p>
+                            </div>
+                            <div class="tile">
+                                <img src="ajith.jpg" alt="ajith kumar">
+                                <h3>Ajith Kumar</h3>
+                                <p>Known as Thala</p>
+                            </div>
+                            <div class="tile">
+                                <img src="simbu.jpg" alt="simbu">
+                                <h3>Silambarasan</h3>
+                                <p>Known as Young Super Star</p>
+                            </div>
+                        </div>
+                        <div class="aboutkw">
+                            <div class="left">
+                                <p class="subheading">kollywood</p>
+                                <p class="text">Tamil cinema is the Indian filmmaking industry of Tamil language motion pictures. 
+                                    It is based in Chennai, Tamil Nadu, India, in the Kodambakkam neighbourhood, 
+                                    leading to the industry's nickname Kollywood, the word being a portmanteau of 
+                                    Kodambakkam and Hollywood.</p>
+                                <p class="text">Over the last quarter of the 20th century, Tamil films from India established a 
+                                    global presence through distribution to an increasing number of overseas theatres 
+                                    in Singapore, Sri Lanka, Malaysia, Japan, the Middle East, parts of Africa, Oceania, 
+                                    Europe, North America and other countries.</p>
+                            </div>
+                            <div class="right">
+                                <img src="rajini.jpg" alt="rajinikanth">
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r3">
+                        <a name="kollytalk"></a>
+                        <div class="ktalk heading">
+                            <p>kolly talk</p>
+                        </div>
+                        <div class="board">
+                            <div class="topics">
+                                <img src="logo2.jpg" alt="logo"> Movies<div class="clear"></div>
+                            </div>
+                            <div class="topics">
+                                <img src="logo3.png" alt="logo"> Short Films<div class="clear"></div>
+                            </div>
+                            <div class="topics">
+                                <img src="logo4.png" alt="logo"> Series<div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="facts">
+                            <div class="fleft">
+                                <p class="subheading">Kolly Facts</p>
+                                <ul>
+                                    <li>The first silent film in Tamil was created by Nataraja R. Mudaliar. 
+                                        He made ‘Keechaka Vadham’ in 1916</li>
+                                    <li>A.Narayanan’s 1934 film Srinivasa Kalyanam was the first Tamil talkie.</li>
+                                    <li>The first female director and producer of Tamil cinema was T.P Rajalakshmi.</li>
+                                    <li>50’s and 60’s of Tamil Cinema was ruled by M.G.Ramachandran(M.G.R), 
+                                        Sivaji Ganesan and Gemini Ganesan</li>
+                                    <li>The mid-late seventies and early eighties actors Kamal Haasan and Rajinikanth 
+                                        witnessed by Tamil cinema.</li>
+                                    <li>Tamil Cinema has an excellent Box Office records in India as well as Outside India. 
+                                        Rajinikanth and Vijay are considered as the Box Office kings of Tamil Cinema.</li>
+                                </ul>
+                            </div>
+                            <div class="fright">
+                                <img src="stats.jpg" alt="stats">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r4">
+                        <a name="gal"></a>
+                        <div>
+                            <p class="gallery heading">Gallery</p>
+                        </div>
+                        <div class="gallerypics">
+                            <div><img src="vijay.jpg" alt="vijay"><h3>Vijay</h3></div>
+                            <div><img src="sivaji.jpg" alt="Rajinikanth"><h3>Rajinikanth</h3></div>
+                            <div><img src="nazriya.jpg" alt="nazriya"><h3>Nazriya</h3></div>
+                            <div><img src="dhanush.jpg" alt="dhanush"><h3>Dhanush</h3></div>
+                            <div><img src="malu.jpg" alt="malavika"><h3>Malavika</h3></div>
+                            <div><img src="suriya.jpg" alt="suriya"><h3>Suriya</h3></div>
+                        </div>
+                        <div class="load">
+                            <button name="btnload" class="loadmore">load more</button>
+                        </div>
+                    </div>
+                    <div class="r5">
+                        <a name="adr"></a>
+                        <div class="contact heading">
+                            <p>Contact</p>
+                        </div>
+                        <div class="map">
+                            <img src="location.png" alt="map" class="mapimg">
+                        </div>
+                        <div class="form">
+                            <div>
+                                <form>
+                                <p>Name: <span>*</span></p><input id="txt" type="text" name="txtName" maxlength="28" required>
+                            </div>
+                            <div>
+                                <p>E-mail: <span>*</span></p><input id="txt" type="email" name="emEmail" maxlength="30"
+                                required placeholder="ex: xyz@email.com">
+                            </div>
+                            <div>
+                                <p>Subject:</p><input type="text" name="txtsubj" id="txt">
+                            </div>
+                            <div class="message">
+                                <p>Message: <span>*</span></p><textarea name="txtarMsg" rows="10"
+                                placeholder="Type your message here.." required maxlength="150"></textarea>
+                            </div>
+                            <div class="send">
+                                <button type="submit" class="sendmsg">Send Message</button> 
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="iconbar">
+                        <img src="twitter.png" alt="icon"><img src="fb.png" alt="icon"><img src="insta.png" alt="icon">
+                        <img src="in.png" alt="icon"><img src="wifi.png" alt="icon">
+                    </div>
+                    <div class="copy">
+                        <div>
+                            <p>Copyright &#169; 2021 KTown</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
